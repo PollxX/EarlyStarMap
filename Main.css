@@ -1,0 +1,75 @@
+body { 
+    margin: 0; 
+    overflow: hidden;
+    background: #151515;
+    font-family: 'Courier New', Courier, monospace;
+}
+p {
+    color: white;
+    clear: right;
+    float: left;
+    margin: 0;
+}
+input,button {
+    clear: right;
+    float: left;
+    font-family: 'Courier New', Courier, monospace;
+}
+div#wrapper{
+    float: left;
+    position: absolute;
+    border: 0.5px solid white;
+    padding: 2px;
+	overflow: hidden;
+	height: 320px;
+	width: 325px;
+}
+
+div#infoBox{
+	float: left;
+	background-color: gray;
+    position: absolute;
+    border: 0.5px solid white;
+    padding: 2px;
+	text-align: justify;
+	text-justify: inter-word;
+	width: 600px;
+	margin-left: calc(50% - 300px);
+}
+
+div#map{
+	float: right;
+	position: absolute;
+	width: 320px;
+	height: 180px;
+	left: 100%;
+	margin-left: -320px;
+	border: 0.5px solid white;
+    padding: 2px;
+}
+
+div#timerMenu{
+	float: left;
+	position: absolute;
+	border: 0.5px solid white;
+    padding: 2px;
+	overflow: hidden;
+	width: 700px;
+	height: 160px;
+	top: calc(100% - 160px);
+	left: calc(50% - 350px);
+}
+
+input#timeMultiplier{
+	left: 195px;
+	position: absolute;
+}
+
+input#focusObj{
+	left: 145px;
+	position: absolute;
+}
+
+button#pause{
+	left: 33%;
+}

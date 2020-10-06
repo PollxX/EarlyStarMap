@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>StarMap</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" media="screen" href="Main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper" style="background-color: gray;opacity: 70%;"></div>
+		<div id="wrapper">
+			<a href=".."><button>Home</button></a>
+			<button id="showhide" onclick="menuToggle()">Options</button>
+			<input type="text" value="Sun" placeholder="Search for an object..." id="focusObj">
+			<br><br>
+			<button id="resetFOV">Reset FOV</button>
+			<button id="increaseFOV">+ FOV</button>
+			<button id="decreaseFOV">- FOV</button>
+			<p id="fovoutput">FOV: 70</p>
+			<br><br>
+			<p id="LatLng">Latitude: unset, Longitude: unset</p>
+			<br><br>
+			<hr>
+			<input type="checkbox" id="inversion">
+			<p>Invert Controls?</p>
+			<br><br>
+			
+			<input type="checkbox" id="hideAzmuthal">
+			<p>Hide Azmuthal</p>
+			<br><br>
+
+			<input type="checkbox" id="hideEquatorial">
+			<p>Hide Equatorial</p>
+			<br><br>
+
+			<input type="checkbox" id="hideHorizon">
+			<p>Hide Horizon</p>
+			<br><br>
+			
+			<input type="checkbox" id="hideTrails">
+			<p>Hide Ephemeris</p>
+		</div>
+		<div id="infoBox">
+			<p id="desc">No object selected.</p>
+		</div>
+		<div id="map"></div>
+		<div id="timerMenu" style="background-color: gray;opacity: 70%;"></div>
+		<div id="timerMenu">
+			<button id="pause">Pause</button>
+			<button id="play">Play</button>
+			<button id="now">Start</button>
+			<br><br>
+			<input id="dateInput" type="datetime-local"/>
+			<button id="go">Go To Date</button>
+			<br><br>
+			<p id="date">Click to start!</p>
+			<br><hr>
+			<p>Time Multiplier </p> 
+			<br>
+			<input id="mult" min="-10000" max="10000" type="number"/>
+			<input value="1" min="-10000" max="10000" step="0.01" id="slider" type="range"/>
+			<button id="resetScale" hidden>Reset</button> 
+		</div>
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGC-fycgnUqDntXM2rwneqE8KxIx2dW8M&y=3"></script>
+		<script type="text/javascript" src="//cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
+		<script type="text/javascript" src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		<script type="text/javascript" src="main.js" type="module"></script>
+		<script>
+			//menu bar toggleable, can be later expanded to include more items
+			var showing = true;
+			function menuToggle(){
+				if(showing){
+					showing = false;
+					$("div[id=wrapper").animate({
+						height: 60
+					}, 250);
+					$("div[id=wrapper").animate({
+						height: 60
+					}, 250);
+				} else {
+					showing = true;
+					$("div[id=wrapper").animate({
+						height: 320
+					}, 250);
+					$("div[id=wrapper").animate({
+						height: 320
+					}, 250);
+				}
+			}
+			
+			//map dynamically expands and contracts when user hovers and stops
+			$("#map").hover(function(){
+				$("#map").animate({
+					width: 640,
+					marginLeft: -640,
+					height: 320 
+				}, 100);
+			}, function(){
+				$("#map").animate({
+					width: 320,
+					marginLeft: -320,
+					height: 180 
+				}, 100);
+			});
+		</script>
+
+	</body>
+</html>
